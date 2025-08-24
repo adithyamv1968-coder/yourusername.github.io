@@ -5,40 +5,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adithya MV - Portfolio</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #2e3b8f, #0f2027);
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
             color: #fff;
             text-align: center;
-            padding: 50px;
+            scroll-behavior: smooth;
         }
+
+        header {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            animation: fadeIn 2s forwards;
         }
+
         p {
-            font-size: 1.2em;
+            font-size: 1.3rem;
+            margin: 10px 0;
+            animation: fadeIn 2s forwards 1s;
         }
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #fff;
+            color: #6e8efb;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: #6e8efb;
+            color: #fff;
+        }
+
+        section {
+            padding: 60px 20px;
+            background: rgba(255,255,255,0.1);
             margin: 20px auto;
-            width: 80%;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            animation: fadeUp 2s forwards;
+            opacity: 0;
+            transform: translateY(30px);
         }
+
+        .project-card {
+            background: rgba(255,255,255,0.2);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            font-size: 1.8rem;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #000;
+        }
+
+        footer {
+            padding: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
     </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Welcome to My Portfolio</h1>
-    <div class="card">
-        <p><strong>Name:</strong> Adithya MV</p>
-        <p><strong>Class:</strong> XI-B</p>
-        <p><strong>Subject:</strong> Artificial Intelligence</p>
-        <p><strong>School:</strong> KV ASC</p>
-    </div>
+    <header>
+        <h1>Adithya MV</h1>
+        <p>Class XI-B | Artificial Intelligence | KV ASC</p>
+        <a href="#about" class="btn">Explore</a>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I am Adithya MV, a student of Class XI-B at KV ASC. I have a keen interest in Artificial Intelligence and technology innovations.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-card">
+            <h3>AI Chatbot</h3>
+            <p>A simple chatbot built using Python and AI concepts.</p>
+        </div>
+        <div class="project-card">
+            <h3>Portfolio Website</h3>
+            <p>This animated portfolio hosted on GitHub Pages.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email me at: <a href="mailto:adithya@example.com" style="color: #fff; text-decoration: underline;">adithya@example.com</a></p>
+        <div class="social-links">
+            <a href="https://github.com/adithyamv1968-coder" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </section>
+
     <footer>
-        <p>Created with ❤️ by Adithya MV</p>
+        <p>&copy; 2025 Adithya MV | Animated Portfolio</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
-</html>i
+</html>
