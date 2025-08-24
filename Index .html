@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adithya MV - Portfolio</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+    body {
+        color: #fff;
+        text-align: center;
+        scroll-behavior: smooth;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    /* Black & White Animated Background */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: linear-gradient(-45deg, #000, #222, #555, #000);
+        background-size: 400% 400%;
+        z-index: -1;
+        animation: gradientMove 8s ease infinite;
+    }
+    @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    header {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+    }
+
+    .typing {
+        font-size: 1.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid #fff;
+        width: 0;
+        animation: typing 5s steps(40, end) infinite alternate, blink 0.7s infinite;
+    }
+
+    @keyframes typing {
+        0% { width: 0; }
+        50% { width: 100%; }
+        100% { width: 0; }
+    }
+    @keyframes blink { 50% { border-color: transparent; } }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background: #fff;
+        color: #000;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+        margin-top: 20px;
+    }
+
+    .btn:hover {
+        background: #000;
+        color: #fff;
+    }
+
+    section {
+        padding: 60px 20px;
+        background: rgba(255,255,255,0.05);
+        margin: 20px auto;
+        border-radius: 15px;
+        width: 90%;
+        max-width: 900px;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s ease;
+    }
+
+    section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    h2 { margin-bottom: 15px; font-size: 2rem; }
+    p { font-size: 1.1rem; margin-bottom: 10px; }
+
+    .project-card {
+        background: rgba(255,255,255,0.1);
+        margin: 10px 0;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .social-links a {
+        margin: 0 15px;
+        font-size: 2rem;
+        color: #fff;
+        transition: 0.3s;
+    }
+    .social-links a:hover { color: #ccc; }
+
+    footer { padding: 20px; font-size: 0.9rem; opacity: 0.8; }
+</style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Adithya MV</h1>
+        <div class="typing">I, Adithya MV of Class XI-B from PM Shri KV ASC</div>
+        <a href="#about" class="btn">Explore My Portfolio</a>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p><strong>Name:</strong> Adithya MV</p>
+        <p><strong>Class:</strong> XI-B</p>
+        <p><strong>Subject:</strong> Artificial Intelligence</p>
+        <p><strong>School:</strong> PM Shri KV ASC</p>
+    </section>
+
+    <section id="projects">
+        <h2>Upcoming Projects</h2>
+        <div class="project-card">
+            <h3>Web Page Development</h3>
+            <p>Working on creating a responsive and animated web page.</p>
+        </div>
+        <div class="project-card">
+            <h3>Music Bot Development</h3>
+            <p>Building a Discord Music Bot using JavaScript and APIs.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:adithyamv1968@gmail.com" style="color:#fff; text-decoration:underline;">adithyamv1968@gmail.com</a></p>
+        <div class="social-links">
+            <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://x.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Adithya MV | Advanced Portfolio</p>
+    </footer>
+
+<script>
+    // Reveal Sections on Scroll
+    document.addEventListener('scroll', () => {
+        document.querySelectorAll('section').forEach(sec => {
+            const pos = sec.getBoundingClientRect().top;
+            if (pos < window.innerHeight - 100) {
+                sec.classList.add('visible');
+            }
+        });
+    });
+</script>
+</body>
+</html>
